@@ -2,8 +2,8 @@
 
 #### Content
 
-- [x]  Chapter 1 - Good Parts
-- [ ]  Chapter 2 - Grammar
+- [x]  [Chapter 1 - Good Parts](#chapter-1-good-parts)
+- [ ]  [Chapter 2 -  Grammar](#chapter-2-grammar)
 - [ ]  Chapter 3 - Objects
 - [ ]  Chapter 4 - Functions
 - [ ]  Chapter 5 - Inheritance
@@ -17,7 +17,7 @@
 - [ ]  Appendix C - JSLint
 
 
-## Chapter 1 - <span style="color:blue">Good Parts<span>
+## Chapter 1 - Good Parts
 
 - Why JavaScript?
     - The reasons that make it a despised programming language for some Developers are:
@@ -39,3 +39,4 @@
         > JavaScript is lightweight and expressive.
 
 	---
+## Chapter 2 Grammar
