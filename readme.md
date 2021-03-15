@@ -39,7 +39,7 @@
         > JavaScript is lightweight and expressive.
 
 	---
-## Chapter 2 Grammar
+## Chapter 2 - Grammar
 
 - <span style="color:green">Whitespace</span>
 
@@ -304,3 +304,6 @@
 
 - <span style="color:green">Functions</span>
     - A function literal defines a function value. It can have an optional name that it can use to call itself recursively. It can specify a list of parameters that will act as variables initialized by the invocation arguments. The body of the function includes variable definitions and statements.
+
+---
+
