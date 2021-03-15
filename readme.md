@@ -17,7 +17,7 @@
 - [ ]  Appendix C - JSLint
 
 
-## Chapter 1 - Good Parts
+## Chapter 1 - <span style="color:blue">Good Parts<span>
 
 - Why JavaScript?
     - The reasons that make it a despised programming language for some Developers are:
@@ -26,14 +26,14 @@
 
 - Analyzing JavaScript
     - JavaScript is built on some very good ideas and a few very bad ones.
-        - The very good ideas include
-            - functions : JavaScript’s functions are first class objects with (mostly) lexical scoping.
-            - loose typing
-            - dynamic objects:  JavaScript has a very powerful object literal notation. Objects can be created simply by listing their components. This notation was the inspiration for JSON
-            - JavaScript is prototypal inheritance.  ( objects inherit properties directly from other objects ) But you have to learn to work with JavaScript’s prototypal nature.
+        - <span style="color:green">The very good ideas</span> include
+            - <span style="color:orange">functions</span> : JavaScript’s functions are first class objects with (mostly) lexical scoping.
+            - <span style="color:orange">loose typing</span>
+            - <span style="color:orange">dynamic objects</span>:  JavaScript has a very powerful object literal notation. Objects can be created simply by listing their components. This notation was the inspiration for JSON
+            - <span style="color:orange">JavaScript is prototypal inheritance</span>.  ( objects inherit properties directly from other objects ) But you have to learn to work with JavaScript’s prototypal nature.
 
-        - The bad ideas include a programming model based on global variables.
-            - global variables: All of the top-level variables of all compilation units are tossed together in a common namespace called the global object.
+        - <span style="color:red">The bad ideas</span> include a programming model based on global variables.
+            - <span style="color:orange">global variables</span>: All of the top-level variables of all compilation units are tossed together in a common namespace called the global object.
 
 
         > JavaScript is lightweight and expressive.
