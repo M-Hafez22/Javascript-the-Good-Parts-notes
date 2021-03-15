@@ -300,3 +300,7 @@
     - The **||** operator produces the value of its first operand if the first operand is truth. Otherwise, it produces the value of the second operand.
     - **( )** Invocation causes the execution of a function value. The invocation operator is a pair of parentheses that follow the function value. The parentheses can contain arguments that will be delivered to the function.
     - **.**  refinement is used to specify a property or element of an object or array.
+
+
+- <span style="color:green">Functions</span>
+    - A function literal defines a function value. It can have an optional name that it can use to call itself recursively. It can specify a list of parameters that will act as variables initialized by the invocation arguments. The body of the function includes variable definitions and statements.
