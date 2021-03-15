@@ -112,3 +112,35 @@
         ```
 
 
+- <span style="color:green">Strings</span>
+    - A string literal can be wrapped in single quotes <span style="color:orange">' '</span>  or double quotes <span style="color:orange">" "</span> .
+    - all characters in JavaScript are 16 bits wide.
+    - JavaScript does not have a character type. To represent a character, make a string with just one character in it.
+    - The <span style="color:orange"> \ </span> (backslash) is the escape character. it used with:
+        <span style="color:orange"> " </span> double quote
+        <span style="color:orange"> ' </span> single quote
+        <span style="color:orange"> \ </span> backslash
+        <span style="color:orange"> / </span> slash
+        <span style="color:orange"> b </span> backspace
+        <span style="color:orange"> f </span> formfeed
+        <span style="color:orange"> n </span> new line
+        <span style="color:orange"> r </span> carriage return
+        <span style="color:orange"> t </span> tab
+        <span style="color:orange"> u </span> 4 hexadecimal digits
+
+        ```js
+            console.log("A" === "\u0041"); // true
+        ```
+
+    - Strings have a length property.
+        ```js
+            console.log("seven".length); // 5
+        ```
+
+    - Strings are <span style="color:orange"> immutable</span>. Once it is made, a string can never be changed. But you make a new string
+    - You can concatenate more than one string together with the + operator.
+
+        ```js
+        console.log('c' + 'a' + 't' === 'cat'); // true
+        ```
+
