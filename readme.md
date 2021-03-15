@@ -144,3 +144,159 @@
         console.log('c' + 'a' + 't' === 'cat'); // true
         ```
 
+
+- <span style="color:green">Statements</span>
+    - A compilation unit contains a set of executable statements. In web browsers, each
+**script** tag delivers a compilation unit that is compiled and immediately executed. Lacking a linker, JavaScript throws them all together in a common global namespace. 
+    - The switch, while, for, and do statements are allowed to have an optional label prefix that interacts with the break statement.
+    - Statements tend to be executed in order from top to bottom. The sequence of execution can be altered by the conditional statements ( if and switch ), by the looping statements ( while, for, and do ), by the disruptive statements ( break, return, and throw ), and by function invocation.
+    - A block is a set of statements wrapped in curly braces. Unlike many other languages, ***blocks in JavaScript do not create a new scope***, so variables should be defined at the top of the function, not in blocks.
+    - The if statement changes the flow of the program based on the value of the expression. The ***then*** block is executed if the expression is truthy; otherwise, the optional **else** branch is taken.
+
+    Here are the falsy values:
+    • false
+    • null
+    • undefined
+    • The empty string ''
+    • The number 0
+    • The number NaN
+    All other values are truthy, including **true** , **the string 'false**' , and **all objects**.
+
+    - **switch** statement
+        - The **switch** statement performs a multiway branch. It compares the expression for
+        equality with all of the specified cases. The expression can produce a number or a
+        string. When an exact match is found, the statements of the matching case clause are
+        executed. If there is no match, the optional default statements are executed.
+        - The break statement can be used to exit from a switch.
+
+        ```js
+        switch(expression) {
+          case x:
+            // code block
+            break;
+          case y:
+            // code block
+            break;
+          default:
+            // code block
+        }
+        ```
+
+    - **while** statement
+        - The **while** statement performs a simple loop. While the expression is truthy, the block will be executed.
+
+        ```js
+        while (condition) {
+          // code block to be executed
+        }
+        ```
+
+    - The **for** statement
+        - The **for** statement is a more complicated looping statement. It comes in two forms.
+        1. The conventional form is controlled by three optional clauses: the initialization, the
+        condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated. Typically, this tests the loop variable against a completion criterion. If the condition is omitted, then a condition of true is assumed. If the condition is falsy, the loop breaks. Otherwise, the block is executed, then the increment executes, and then the loop repeats with the condition.
+        2. The other form (called for in ) enumerates the property names (or keys) of an object.
+        On each iteration, another property name string from the object is assigned to the
+        variable.
+
+            ```js
+            for (myvar in obj) {
+            	if (obj.hasOwnProperty(myvar)) {
+            		...
+            	}
+            }
+            ```
+
+    - **do** statement
+        - The do statement is like the while statement except that the expression is tested after the block is executed instead of before. That means that the block will always be executed at least once.
+
+        ```js
+        s = 0; i = 0;
+        do {
+          s += a[i] * b[i];
+          i++;
+        } while ( i < n );
+        ```
+
+    - **try** statement
+        - The try statement executes a block and catches any exceptions that were thrown by the block. The catch clause defines a new variable that will receive the exception object.
+
+        ```js
+        try {
+          //  Block of code to try
+        }
+        catch(Exception e) {
+          //  Block of code to handle errors
+        }
+        ```
+
+    - **throw** statement
+        - The throw statement raises an exception. If the throw statement is in a try block, then
+        control goes to the catch clause. Otherwise, the function invocation is abandoned,
+        and control goes to the catch clause of the try in the calling function.
+        The expression is usually an object literal containing a name property and a message
+        property. The catcher of the exception can use that information to determine what to
+        do.
+
+        ```js
+        <!DOCTYPE html>
+        <html>
+        <body>
+
+        <p>Please input a number between 5 and 10:</p>
+
+        <input id="demo" type="text">
+        <button type="button" onclick="myFunction()">Test Input</button>
+        <p id="message"></p>
+
+        <script>
+        function myFunction() {
+          var message, x;
+          message = document.getElementById("message");
+          message.innerHTML = "";
+          x = document.getElementById("demo").value;
+          try {
+            if(x == "") throw "is Empty";
+            if(isNaN(x)) throw "not a number";
+            if(x > 10) throw "too high";
+            if(x < 5) throw "too low";
+          }
+          catch(err) {
+            message.innerHTML = "Input " + err;
+          }
+        }
+        </script>
+
+        </body>
+        </html>
+        ```
+
+    - **return** statement
+        - The return statement causes the early return from a function. It can also specify the value to be returned. If a return expression is not specified, then the return value will be undefined.
+        - JavaScript does not allow a line end between the return and the expression.
+    - **break** statement
+        - The break statement causes the exit from a loop statement or a switch statement. It can optionally have a label that will cause an exit from the labeled statement.
+        - JavaScript does not allow a line end between the break and the label.
+
+- <span style="color:green">Expressions</span>
+    - An expression statement can either assign values to one or more variables or members, invoke a method, delete a property from an object.
+
+    Operator precedence
+
+        1. **. [] ( )**  Refinement and invocation
+        2. **delete new typeof + - !** Unary operator
+        3. *** / %** Multiplication, division, remainder
+        4. **+ -** Addition/concatenation, subtraction
+        5. **>= <= > <** Inequality
+        6. **=== !==** Equality
+        7. **&&** Logical and
+        8. **||**  Logical or
+        9. **? :**  Ternary
+
+    - The values produced by **typeof** are 'number', 'string', 'boolean', 'undefined', 'function', and 'object'. If the operand is an array or null, then the result is 'object'
+    - The **+** operator adds or concatenates. If you want it to add, make sure both operands are numbers.
+    - The **/** operator can produce a non-integer result even if both operands are integers.
+    - The **&&** operator produces the value of its first operand if the first operand is falsy. Otherwise, it produces the value of the second operand.
+    - The **||** operator produces the value of its first operand if the first operand is truth. Otherwise, it produces the value of the second operand.
+    - **( )** Invocation causes the execution of a function value. The invocation operator is a pair of parentheses that follow the function value. The parentheses can contain arguments that will be delivered to the function.
+    - **.**  refinement is used to specify a property or element of an object or array.
