@@ -40,3 +40,66 @@
 
 	---
 ## Chapter 2 Grammar
+
+- <span style="color:green">Whitespace</span>
+
+    ```js
+    var first = 'First';
+    var second ='Second';
+    ```
+
+    - the space between ***var** and **variable name** cannot be removed*, but the other spaces can be removed
+
+- <span style="color:green">Comments</span>
+    - single line comment formed with <span style="color:orange">//</span> 
+        ```js
+        // 
+        ```
+    - block comments formed with <span style="color:orange">/* */</span>, But this type may cause problems like this:
+
+        ```js
+        /*
+            var rm_a = /a*/.match(s);
+        */
+        ```
+    - JSDoc 
+        ```js
+        /**
+        * Function return a name.
+        *
+        * @param {string} n - A string param
+        * @return {string} A good string
+        */
+
+        function foo(n) {
+            return n
+        }
+        ```
+- <span style="color:green">Names</span>
+    - A name is a letter optionally followed by one or more letters, digits, or underbars. A name cannot be one of these reserved words:
+        - abstract
+        - boolean break byte
+        - case catch char class const continue
+        - debugger default delete do double
+        - else enum export extends
+        - false final finally float for function
+        - goto
+        - if implements import in instanceof int interface
+        - long
+        - native new null
+        - package private protected public
+        - return
+        - short static super switch synchronized
+        - this throw throws transient true try typeof
+        - var volatile void
+        - while with
+    - Names are used for statements, variables, parameters, property names, operators, and labels.
+- <span style="color:green">Numbers</span>
+    - JavaScript has a single number type. Internally, it is represented as 64-bit floating point, the same as Java’s double. 
+    - there is **no separate integer type**, so 1 and 1.0 are the same value. so problems of overflow in short integers are completely avoided.
+    - **Negative numbers** can be formed by using the <span style="color:orange">–</span> prefix operator.
+    - The value  <span style="color:orange">NaN</span> is a number value that is the result of an operation that cannot produce a normal result. 
+        - NaN is not equal to any value, including itself. 
+        - You can detect NaN with the `isNaN(number)` function.
+
+
