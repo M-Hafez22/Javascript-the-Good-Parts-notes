@@ -100,6 +100,15 @@
     - **Negative numbers** can be formed by using the <span style="color:orange">–</span> prefix operator.
     - The value  <span style="color:orange">NaN</span> is a number value that is the result of an operation that cannot produce a normal result. 
         - NaN is not equal to any value, including itself. 
+            ```js 
+                console.log(NaN === NaN); // false
+            ```
         - You can detect NaN with the `isNaN(number)` function.
+    - If a number literal has an exponent part, then the value of the literal is computed by
+     multiplying the part before the <span style="color:orange">e</span> by 10 raised to the power of the part after the <span style="color:orange">e</span>. So:
+
+        ```js
+            console.log(5e2 === 500);  // true
+        ```
 
 
