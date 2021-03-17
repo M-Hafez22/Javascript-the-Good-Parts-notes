@@ -5,7 +5,7 @@
 - [x]  [Chapter 1 - Good Parts](#chapter-1-good-parts)
 - [x]  [Chapter 2 -  Grammar](#chapter-2-grammar)
 - [x]  [Chapter 3 - Objects](#chapter-3-objects)
-- [ ]  Chapter 4 - Functions
+- [ ]  [Chapter 4 - Functions](#chapter-4-functions)
 - [ ]  Chapter 5 - Inheritance
 - [ ]  Chapter 6 - Arrays
 - [ ]  Chapter 7 - Regular Expressions
@@ -320,7 +320,7 @@
     - **Objects can contain other objects**, so they can easily represent tree or graph
     structures.
 
-- **<span style="color:#c3c90e">Object Literals</span>**
+- **<span style="color:#497a6d">Object Literals</span>**
 
     An object literal is a pair of curly braces surrounding zero or more name/value pairs. An object literal can appear anywhere an expression can appear:
 
@@ -355,7 +355,7 @@
     };
     ```
 
-- **<span style="color:#c3c90e">Retrieval</span>**
+- **<span style="color:#497a6d">Retrieval</span>**
     - Values can be retrieved from an object by wrapping a string expression in a **[ ]**
     - If the string expression is a string literal, and if it is a legal JavaScript name and
     not a reserved word, then the **.** notation can be used instead
@@ -387,7 +387,7 @@
             flight.status = 'overdue';
         ```
 
-- **<span style="color:#c3c90e">Reference</span>**
+- **<span style="color:#497a6d">Reference</span>**
     - Objects are passed around by reference. They are never copied:
         - Passing values
 
@@ -421,12 +421,12 @@
 
             Objects are copied by their **reference.**
 
-- **<span style="color:#c3c90e">Prototype</span>**
+- **<span style="color:#497a6d">Prototype</span>**
     - Every object is linked to a prototype object from which it can inherit properties. All objects created from object literals are linked to **Object.prototype**, an object that comes standard with JavaScript.
     - If we try to retrieve a property value from an object, and if the object lacks the property name, then JavaScript attempts to retrieve the property value from the prototype object. And if that object is lacking the property, then it goes to its prototype, and so on until the process finally bottoms out with Object.prototype. If the desired property exists nowhere in the prototype chain, then the result is the undefined value. This is called ***delegation***.
     - The prototype relationship is a dynamic relationship. If we add a new property to a prototype, that property will immediately be visible in all of the objects that are based on that prototype
 
-- **<span style="color:#c3c90e">Reflection</span>**
+- **<span style="color:#497a6d">Reflection</span>**
     - when you are reflecting, you are interested in data, and so you should be aware that some values could be functions.
     - hasOwnProperty
         - returns true if the object has a particular property or false if it hasn't.
@@ -435,7 +435,7 @@
         - You can use typeof but it will
         - The typeof method looks at all the prototype chain, and some values could be functions.
 
-- **<span style="color:#c3c90e">Enumeration</span>**
+- **<span style="color:#497a6d">Enumeration</span>**
     - for in
         - The **for in** statement can loop over all of the property names in an object.  including functions and prototype properties
 
@@ -463,7 +463,7 @@
             Object.entries(obj).forEach(item => console.log(`${item}`));
         ```
 
-- **<span style="color:#c3c90e">Delete</span>**
+- **<span style="color:#497a6d">Delete</span>**
     - The delete operator can be used to remove a property from an object.
     - It will not touch any of the objects in the prototype linkage.
     - Removing a property from an object may allow a property from the prototype linkage to shine through:
@@ -476,7 +476,7 @@
         another_stooge.nickname   // 'Curly'
     ```
 
-- **<span style="color:#c3c90e">Global Abatement</span>**
+- **<span style="color:#497a6d">Global Abatement</span>**
     - JavaScript makes it easy to define ***global variables*** that can hold all of the assets of your application. Unfortunately, *global variables weaken the resiliency of programs* and should be avoided.
     - One way to minimize the use of global variables is to create a single global variable for your application
 
@@ -504,3 +504,4 @@
         };
     ```
 ---
+
