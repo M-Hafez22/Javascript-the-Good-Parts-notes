@@ -34,7 +34,7 @@
 ```js
     // Create a variable called add and store a function in it that adds two numbers.
     var add = function (a, b) {
-    return a + b;
+        return a + b;
     };
 ```
 - A function literal has four parts:
@@ -55,3 +55,58 @@
     - As functions can be defined inside of other functions. the inner function has access to its parameters and variables. and also enjoys **access to the parameters and variables of the functions it is nested within**. The function object created by a function literal contains a link to that outer context. *This is called closure*.
 
 ---
+
+## Invocation
+> **Invoking a function suspends the execution of the current function, passing control and parameters to the new function**.
+
+```js
+    add(5, 7)
+```
+
+-  In addition to the declared parameters, *the function receives two additional parameters*:
+    1. **this**
+        - The this parameter is very important in object oriented programming, and **its value is determined by the invocation pattern**.The patterns differ in how the bonus parameter ***this*** is initialized.
+    2. **arguments**
+        - the arguments passed in the invocation parentheses separated by commas.
+        - Each expression produces one argument value. Each of the argument values will be assigned to the function’s parameter names.
+        - there is no run time error if the number of arguments don't match the number of the parameters  
+            ```js
+                if (argument > parameters) {
+                    // the extra argument values will be ignored.
+                }else if (argument < parameters) {
+                    // the missing parameters will be assigned to undefined
+                }
+            ```
+        - There is no type checking on the argument values: any type of value can be passed to any parameter.
+
+- **The Invocation patterns** in JavaScript are: 
+    1. The **method** invocation pattern
+    2. The **function** invocation pattern
+    3. The **constructor** invocation pattern
+    4. The **apply** invocation pattern.
+
+
+1. **The Method Invocation Pattern**
+    When a function is stored as a property of an object, we call it a method. 
+    When a method is invoked, ***this*** is bound to that object. If an invocation expression contains a refinement (that is, a . dot expression or [subscript] expression), it is invoked as a method:
+
+    ```js
+        // Create myObject. It has a value and an increment
+        // method. The increment method takes an optional
+        // parameter. If the argument is not a number, then 1
+        // is used as the default.
+
+        var myObject = {
+            value: 0,
+            increment: function (inc) {
+                this.value += typeof inc === 'number' ? inc : 1;
+            }
+        };
+
+        myObject.increment( );
+        console.log(myObject.value); // 1
+
+        myObject.increment(2);
+        console.log(myObject.value); // 3
+    ```
+- A method can use **this** to access the object so that it can retrieve values from the object or modify the object. The binding of **this** to the object happens at invocation time. This very late binding makes functions that use **this** highly reusable. Methods that get their object context from **this** are called *public methods*.
