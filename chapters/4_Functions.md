@@ -1,13 +1,13 @@
 
-## Chapter 4 - Functions
+# Chapter 4 - Functions
 
-#### Table of Content
+## Table of Content
 
 - [Function Objects](#function-objects)
 - [Function Literal](#function-literal)
 - [Invocation](#invocation)
 
---- 
+---
 
 > **Functions are the fundamental modular unit of JavaScript**. It encloses a set of statements. Functions are used for *code reuse*, *information hiding*, *composition*, and specify the behavior of objects. Generally.
 
@@ -15,10 +15,10 @@
 
 ## Function Objects
 
-- **Functions in JavaScript are objects**. 
-- Function objects are linked to Function.prototype (which is itself linked to Object.prototype). 
-- Every function is also created with two additional hidden properties: 
-  - The function’s *context* 
+- **Functions in JavaScript are objects**.
+- Function objects are linked to Function.prototype (which is itself linked to Object.prototype).
+- Every function is also created with two additional hidden properties:
+  - The function’s *context*
   - The *code* that implements the function’s behavior.
 
 - Since functions are objects, they can be used like any other value:
@@ -45,7 +45,7 @@
 - A function literal has four parts:
   1. The reserved word **function**.
   2. The **function’s name** which is  *optional*.
-      -  If a function is not given a *name*, it is said to be **anonymous**.
+      - If a function is not given a *name*, it is said to be **anonymous**.
       - The function can use its name to **call itself recursively**.
       - The name can be used by debuggers and development tools to **identify the function**.
   3. The **Parameters**:
@@ -207,3 +207,7 @@
     // a get_status method.
     var status = Quo.prototype.get_status.apply(statusObject); // status is 'A-OK'
     ```
+
+---
+
+## Arguments
