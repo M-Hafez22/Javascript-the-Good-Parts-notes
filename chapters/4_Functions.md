@@ -7,6 +7,7 @@
 - [Function Literal](#function-literal)
 - [Invocation](#invocation)
 - [Arguments](#arguments)
+- [Return](#return)
 
 ---
 
@@ -258,3 +259,16 @@ console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
 ```
 
 - Because of a design error, arguments is not really an array. It is an array-like object. arguments has a length property, but it lacks all of the array methods.
+
+---
+
+## Return
+
+- When a function is invoked, it begins execution with the first statement, and ends when it hits the **}** that closes the function body. That causes the function to return control to the part of the program that invoked the function.
+
+- The **return** statement can be used to cause the function to return early. When **return** is executed, the function returns immediately without executing the remaining statements.
+
+- A function always returns a value. If the return value is not specified, then *undefined* is returned.
+- If the function was invoked with the ***new*** prefix and the return value is not an object, then ***this*** (the new object) is returned instead.
+
+---
