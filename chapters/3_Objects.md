@@ -1,7 +1,7 @@
 
 # Chapter 3 - Objects
 
-#### Table of Content
+## Table of Content
 
 - [Object Literals](#object-literals)
 - [Retrieval](#retrieval)
@@ -19,10 +19,9 @@
 - **Objects in JavaScript are mutable keyed collections.**
 - In JavaScript, arrays are objects, functions are objects, regular expressions are objects, and, of course, objects are objects.
 - The **<span style="color:blue">object</span>** is a container of properties, where a property has a name and a value.
-    - the property **<span style="color:orange">name</span>** can be any string, including the empty string.
-    - property **<span style="color:orange">value</span>** can be any JavaScript value except for undefined
-    - **Objects can contain other objects**, so they can easily represent tree or graph
-    structures.
+  - the property **<span style="color:orange">name</span>** can be any string, including the empty string.
+  - property **<span style="color:orange">value</span>** can be any JavaScript value except for undefined
+  - **Objects can contain other objects**, so they can easily represent tree or graph structures.
 
 ---
 
@@ -39,8 +38,8 @@ var stooge = {
 ```
 
 - **A property’s name**
-    - can be any string, including the empty string.
-    - The quotes around a property’s name in an object literal are optional if the name would be a legal JavaScript name and not a reserved word. So quotes are required around "first-name", but are optional around first_name.
+  - can be any string, including the empty string.
+  - The quotes around a property’s name in an object literal are optional if the name would be a legal JavaScript name and not a reserved word. So quotes are required around "first-name", but are optional around first_name.
 - Commas are used to separate the pairs.
 - **A property’s value** can be obtained from any expression, including another object literal. Objects can nest:
 
@@ -95,10 +94,11 @@ member
     ```
 
 ## Reference
-- Objects are passed around by reference. They are never copied:
-    - Passing values
 
-        ```js
+- Objects are passed around by reference. They are never copied:
+  - Passing values
+
+    ```js
         // Passing values
         var x = 10;
         var y = x; // The value of (x) is copied to (y)
@@ -110,23 +110,21 @@ member
         var y = x.value; // The value of (x.value) is copied to (y)
         x.value = 20;
         // NOW:  x = { value: 20 } , y = 10
-        ```
+    ```
 
-    - Passing by reference
+  - Passing by reference
 
-        ```js
-        // Passing by reference
-        var x = { value : 10}; 
-        var y = x; // (X) and (Y) are pointing to the same object
-        x.value = 20; 
-        // NOW:  x = { value: 20 } , y = { value: 20 }
-        ```
+    ```js
+    // Passing by reference
+    var x = { value : 10}; 
+    var y = x; // (X) and (Y) are pointing to the same object
+    x.value = 20; 
+    // NOW:  x = { value: 20 } , y = { value: 20 }
+    ```
 
-        for more details watch this: [JavaScript Value vs Reference Types](https://www.youtube.com/watch?v=fD0t_DKREbE) 
+    for more details watch this: [JavaScript Value vs Reference Types](https://www.youtube.com/watch?v=fD0t_DKREbE)
 
-        [JavaScript Value vs Reference Types](https://www.youtube.com/watch?v=fD0t_DKREbE)
-
-        Objects are copied by their **reference.**
+    Objects are copied by their **reference.**
 
 ## Prototype
 
@@ -138,16 +136,16 @@ member
 
 - when you are reflecting, you are interested in data, and so you should be aware that some values could be functions.
 - hasOwnProperty
-    - returns true if the object has a particular property or false if it hasn't.
-    - The hasOwnProperty method does not look at the prototype chain
+  - returns true if the object has a particular property or false if it hasn't.
+  - The hasOwnProperty method does not look at the prototype chain
 - typeof
-    - You can use typeof but it will
-    - The typeof method looks at all the prototype chain, and some values could be functions.
+  - You can use typeof but it will
+  - The typeof method looks at all the prototype chain, and some values could be functions.
 
 ## Enumeration
 
 - for in
-    - The **for in** statement can loop over all of the property names in an object.  including functions and prototype properties
+  - The **for in** statement can loop over all of the property names in an object.  including functions and prototype properties
 
     ```js
         var name;
@@ -160,7 +158,7 @@ member
     ```
 
 - **Object.keys -** **Object.entries()**
-    - You can also use **Object.keys or** **Object.entries()** to generate an array with all its enumerable properties, and loop through that array.
+  - You can also use **Object.keys or** **Object.entries()** to generate an array with all its enumerable properties, and loop through that array.
 
     ```js
         const obj = { a: 1, b: 2, c: 3 };

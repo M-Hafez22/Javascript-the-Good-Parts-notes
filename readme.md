@@ -1,6 +1,6 @@
 # JavaScript: The Good Parts
 
-#### Content
+## Content
 
 - [x]  [Chapter 1 - Good Parts](./chapters/1_Good_Parts.md)
 - [x]  [Chapter 2 -  Grammar](./chapters/2_Grammar.md)
@@ -15,6 +15,5 @@
 - [ ]  Appendix A - the Awful Parts
 - [ ]  Appendix B - the Bad Parts
 - [ ]  Appendix C - JSLint
-
 
 ---
