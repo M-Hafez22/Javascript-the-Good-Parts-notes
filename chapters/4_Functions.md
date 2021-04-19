@@ -6,6 +6,7 @@
 - [Function Objects](#function-objects)
 - [Function Literal](#function-literal)
 - [Invocation](#invocation)
+- [Arguments](#arguments)
 
 ---
 
@@ -211,3 +212,49 @@
 ---
 
 ## Arguments
+
+- A bonus parameter that is available to functions when they are invoked is the arguments array.
+- It gives the function access to all of the arguments that were supplied with the invocation, including excess *arguments that were not assigned to parameters*. This makes *it possible to write functions that take an unspecified number of parameters*:
+
+```js
+// Make a function that adds a lot of stuff.
+// Note that defining the variable sum inside of the function does not interfere with the sum defined outside of the function. 
+// The function only sees the inner one.
+var sum = function ( ) {
+    var i, sum = 0;
+
+    for (i = 0; i < arguments.length; i += 1) {
+        sum += arguments[i];
+    }
+    return sum;
+};
+console.log(sum(4, 8, 15, 16, 23, 42)); // 108
+
+```
+
+```js
+/**
+ * Sorted Union
+ * 
+ * Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+ * 
+ * In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+ * 
+ * The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+ */
+
+
+function uniteUnique(arr) {
+    let unionArrays = [];
+    for (let i = 0; i <  arguments.length; i++){
+        unionArrays = unionArrays.concat(arguments[i])
+    }
+    unionArrays = new Set(unionArrays)
+    const arrayWithNoDuplicates = [...unionArrays]
+    return arrayWithNoDuplicates;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+```
+
+- Because of a design error, arguments is not really an array. It is an array-like object. arguments has a length property, but it lacks all of the array methods.
