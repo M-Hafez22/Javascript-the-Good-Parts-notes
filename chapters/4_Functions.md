@@ -9,7 +9,7 @@
 - [Arguments](#arguments)
 - [Return](#return)
 - [Exceptions](#exceptions)
-
+- [Augmenting Types](#augmenting-types)
 ---
 
 > **Functions are the fundamental modular unit of JavaScript**. It encloses a set of statements. Functions are used for *code reuse*, *information hiding*, *composition*, and specify the behavior of objects. Generally.
@@ -309,3 +309,55 @@ console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
 
   - If an exception is thrown within a try block, control will go to its catch clause.
   - A try statement has a single catch block that will catch all exceptions. If your handling depends on the type of the exception, then the exception handler will have to inspect the name to determine the type of the exception.
+
+---
+
+## Augmenting Types
+
+JavaScript allows the basic types of the language to be augmented. In Chapter 3, we saw that adding a method to Object.prototype makes that method available to all objects. This also works for functions, arrays, strings, numbers, regular expressions, and booleans.
+
+- For example, by augmenting Function.prototype, we can make a method available to
+all functions:
+
+  ```js
+  Function.prototype.method = function (name, func) {
+  this.prototype[name] = func;
+  return this;
+  };
+  ```
+
+  - Now we no longer have to type the name of the prototype property. That bit of ugliness can now be hidden.
+
+  - Return the closest integers
+
+  ```js
+  Number.method('integer', function ( ) {
+  return Math[this < 0 ? 'ceil' : 'floor'](this);
+  });
+  console.log((-10 / 3).integer( )); // -3
+  ```
+
+  - Removes spaces from the ends of a string
+
+  ```js
+  String.method('trim', function ( ) {
+  return this.replace(/^\s+|\s+$/g, '');
+  });
+  console.log('"' + " neat ".trim( ) + '"');
+  ```
+
+- By augmenting the basic types, we can make significant improvements to the expressiveness of the language. Because of the dynamic nature of JavaScript’s prototypal inheritance, all values are immediately endowed with the new methods, even values that were created before the methods were created.
+
+> The prototypes of the basic types are public structures, so care must be taken when mixing libraries. One defensive technique is to add a method only if the method is known to be missing:
+  
+  ```js
+  // Add a method conditionally.
+  Function.prototype.method = function (name, func) {
+    if (!this.prototype[name]) {
+      this.prototype[name] = func;
+      return this;
+  }
+  };
+  ```
+
+> Another concern is that the for in statement interacts badly with prototypes. We saw a couple of ways to mitigate that in Chapter 3: we can use the hasOwnProperty method to screen out inherited properties, and we can look for specific types.
