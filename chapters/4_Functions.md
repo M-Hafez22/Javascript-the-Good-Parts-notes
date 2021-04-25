@@ -10,6 +10,8 @@
 - [Return](#return)
 - [Exceptions](#exceptions)
 - [Augmenting Types](#augmenting-types)
+- [Recursion](#recursion)
+
 ---
 
 > **Functions are the fundamental modular unit of JavaScript**. It encloses a set of statements. Functions are used for *code reuse*, *information hiding*, *composition*, and specify the behavior of objects. Generally.
@@ -361,3 +363,38 @@ all functions:
   ```
 
 > Another concern is that the for in statement interacts badly with prototypes. We saw a couple of ways to mitigate that in Chapter 3: we can use the hasOwnProperty method to screen out inherited properties, and we can look for specific types.
+
+## Recursion
+
+- A recursive function is a function that calls itself, either directly or indirectly. Recursion is a powerful programming technique in which a problem is divided into a set of similar subproblems, each solved with a trivial solution. Generally, a recursive function calls itself to solve its subproblems.
+
+```js
+var hanoi = function hanoi(disc, src, aux, dst) {
+ if (disc > 0) {
+    hanoi(disc - 1, src, dst, aux);
+    console.log('Move disc ' + disc +
+    ' from ' + src + ' to ' + dst);
+    hanoi(disc - 1, aux, src, dst);
+ }
+};
+hanoi(3, 'Src', 'Aux', 'Dst');
+```
+
+[Recursion in software development](https://www.youtube.com/watch?v=vPEJSJMg4jY)
+
+- Some languages offer the tail recursion optimization. This means that if a function returns the result of invoking itself recursively, then the invocation is replaced with a loop, which can significantly speed things up. Unfortunately, JavaScript does not currently provide tail recursion optimization. Functions that recurse very deeply can fail by exhausting the return stack:
+
+  ```js
+  // Make a factorial function with tail
+  // recursion. It is tail recursive because
+  // it returns the result of calling itself.
+  // JavaScript does not currently optimize this form.
+  var factorial = function factorial(i, a) {
+  a = a || 1;
+  if (i < 2) {
+    return a;
+  }
+  return factorial(i - 1, a * i);
+  };
+  console.log(factorial(4)); // 24
+  ```
