@@ -13,6 +13,7 @@
 - [Recursion](#recursion)
 - [Scope](#scope)
 - [Closure](#closure)
+- [Callbacks](#callbacks)
 
 ---
 
@@ -533,3 +534,16 @@ var add_the_handlers = function (nodes) {
 ```
 
 - The add_the_handlers function was intended to give each handler a unique number i. It fails because the handler functions are bound to the variable i, not the value of the variable i at the time the function was made.
+
+## Callbacks
+
+- When dealing with server requests it's better to make an asynchronous request, providing a callback function that will be invoked when the server’s response is received. An asynchronous function returns immediately, so the client isn’t blocked:
+
+  ```js
+  request = prepare_the_request( );
+    send_request_asynchronously(request, function (response) {
+    display(response);
+  });
+  ```
+  
+  - We pass a function parameter to the send_request_asynchronously function that will be called when the response is available.
