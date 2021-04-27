@@ -545,5 +545,82 @@ var add_the_handlers = function (nodes) {
     display(response);
   });
   ```
-  
+
   - We pass a function parameter to the send_request_asynchronously function that will be called when the response is available.
+
+## Module
+
+- A module is a function or object that presents an interface but that hides its state and implementation.
+- By using functions to produce modules, we can almost completely eliminate our use of global variables, thereby mitigating one of JavaScript’s worst features.
+
+- For example, suppose we want to augment String with a deentityify method. Its job is to look for HTML entities in a string and replace them with their equivalents. It makes sense to keep the names of the entities and their equivalents in an object. But where should we keep the object? We could put it in a global variable, but global variables are evil. We could define it in the function itself, but that has a runtime cost because the literal must be evaluated every time the function is invoked. The ideal approach is to put it in a closure, and perhaps provide an extra method that can add additional entities:
+
+```js
+Function.prototype.method = function (name, func) {
+  this.prototype[name] = func;
+  return this;
+};
+
+String.method('deentityify', function () {
+  // The entity table. It maps entity names to
+  // characters.
+  var entity = {
+    quot: '"',
+    lt: '<',
+    gt: '>'
+  };
+  // Return the deentityify method.
+  return function () {
+    // This is the deentityify method. It calls the string
+    // replace method, looking for substrings that start
+    // with '&' and end with ';'. If the characters in
+    // between are in the entity table, then replace the
+    // entity with the character from the table. It uses
+    // a regular expression (Chapter 7).
+    return this.replace(/&([^&;]+);/g,
+      function (a, b) {
+        var r = entity[b];
+        return typeof r === 'string' ? r : a;
+      }
+    );
+  };
+}());
+
+console.log('&lt;&quot;&gt;'.deentityify()); // <">
+```
+
+- It can also be used to produce objects that are secure. Let’s suppose we want to make an object that produces a serial number:
+
+  ```js
+  var serial_maker = function () {
+    // Produce an object that produces unique strings. A
+    // unique string is made up of two parts: a prefix
+    // and a sequence number. The object comes with
+    // methods for setting the prefix and sequence
+    // number, and a gensym method that produces unique
+    // strings.
+    var prefix = '';
+    var seq = 0;
+    return {
+      set_prefix: function (p) {
+        prefix = String(p);
+      },
+      set_seq: function (s) {
+        seq = s;
+      },
+      gensym: function () {
+        var result = prefix + seq;
+        seq += 1;
+        return result;
+      }
+    };
+  };
+  var seqer = serial_maker();
+  seqer.set_prefix('Q');
+  seqer.set_seq(1000);
+  var unique = seqer.gensym(); // unique is "Q1000"
+  console.log(unique)
+  ```
+
+  - The methods do not make use of this or that. As a result, there is no way to compromise the seqer. It isn’t possible to get or change the prefix or seq except as permitted by the methods. The seqer object is mutable, so the methods could be replaced, but that still does not give access to its secrets. seqer is simply a collection of functions, and those functions are capabilities that grant specific powers to use or modify the secret state.
+  - If we passed seqer.gensym to a third party’s function, that function would be able to generate unique strings, but would be unable to change the prefix or seq.
