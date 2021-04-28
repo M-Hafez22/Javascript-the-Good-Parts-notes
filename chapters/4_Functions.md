@@ -15,6 +15,7 @@
 - [Closure](#closure)
 - [Callbacks](#callbacks)
 - [Cascade](#cascade)
+- [Curry](#curry)
 
 ---
 
@@ -661,3 +662,10 @@ that enables cascades would allow us to write in a style like this:
   - The methods allow us to move the element, change its dimensions and styling, and add behavior.
   - Each of those methods returns the object, so the result of the invocation can be used for the next invocation.
 - Cascading can produce interfaces that are very expressive. It can help control the tendency to make interfaces that try to do too much at once.
+
+## Curry
+
+- **Currying** allows us to produce a new function by combining a function and an argument.
+- The curry method works by creating a closure that holds that original function and the arguments to curry. It returns a function that, when invoked, returns the result of calling that original function, passing it all of the arguments from the invocation of curry and the current invocation. It uses the Array concat method to concatenate the two arrays of arguments together
+
+> [Currying - Part 6 of Functional Programming in JavaScript](https://www.youtube.com/watch?v=iZLP4qOwY8I&t)
