@@ -1,5 +1,12 @@
 # Chapter 5 - Inheritance
 
+## Table of Content
+
+- [Pseudoclassical](#pseudoclassical)
+- [Object Specifiers](#object-specifiers)
+
+---
+
 - The benefits of classical inheritance (or extends).
   - it is a form of code reuse.
   - it includes the specification of a system of types.
@@ -18,3 +25,23 @@
 
 > There is no need to use it, there are better code reuse patterns in JavaScript
 
+## Object Specifiers
+
+- When a constructor is given a very large number of parameters. It's better to give the constructor a single object specifier instead.
+  - instead of:
+  
+  ```js
+  var myObject = maker(f, l, m, c, s);
+  ```
+
+  - we can write:
+  
+  ```js
+  var myObject = maker({
+  first: f,
+  last: l,
+  middle: m,
+  state: s,
+  city: c
+  });
+  ```
