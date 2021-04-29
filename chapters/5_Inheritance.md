@@ -4,6 +4,7 @@
 
 - [Pseudoclassical](#pseudoclassical)
 - [Object Specifiers](#object-specifiers)
+- [Prototypal](#prototypal)
 
 ---
 
@@ -47,3 +48,41 @@
   ```
   
 - This is useful when working with JSON, we can simply pass the JSON object to the constructor and it will return a fully constituted object.
+
+## Prototypal
+
+- In a purely prototypal pattern, a **new object can inherit the properties of an old object**.
+- Now you can customize the new object (adding properties or methods through the dot notation for example). this is called **Differential Inheritance**
+
+  ```js
+  // the original Object
+  var myMammal = {
+    name: 'Herb the Mammal',
+    get_name: function () {
+      return this.name;
+    },
+    says: function () {
+      return this.saying || '';
+    }
+  };
+
+  // Create an instance of original object
+  var myCat = Object.create(myMammal);
+
+  // Customizing the new object
+  myCat.name = 'Henrietta';
+  myCat.saying = 'meow';
+  myCat.purr = function (n) {
+    var i, s = '';
+    for (i = 0; i < n; i += 1) {
+      if (s) {
+        s += '-';
+      }
+      s += 'r';
+    }
+    return s;
+  };
+  myCat.get_name = function () {
+    return this.says() + ' ' + this.name + ' ' + this.says();
+  };
+  ```
