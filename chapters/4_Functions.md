@@ -669,3 +669,27 @@ that enables cascades would allow us to write in a style like this:
 - The curry method works by creating a closure that holds that original function and the arguments to curry. It returns a function that, when invoked, returns the result of calling that original function, passing it all of the arguments from the invocation of curry and the current invocation. It uses the Array concat method to concatenate the two arrays of arguments together
 
 > [Currying - Part 6 of Functional Programming in JavaScript](https://www.youtube.com/watch?v=iZLP4qOwY8I&t)
+
+## Memoization
+
+- In JavaScript we can use objects and arrays to remember the results of previous operations - without having to keep recalculating the it -.
+
+- Particularly useful when a function is recursive and uses the results of its previous iteration in the current iteration.
+
+>[Memoization And Dynamic Programming Explained](https://www.youtube.com/watch?v=WbwP4w6TpCk)
+
+```js
+// Return the fibonacci number by it's index
+function fib(index, cache = [0, 1, 1]) {
+  // Check if the number has been calculated
+    if (cache[index]) {
+        return cache[index];
+    }
+  // Adds Fibonacci number
+    cache[index] = fib(index - 1, cache) + fib(index - 2, cache);
+    console.log(index);
+    return cache[index];
+}
+
+console.log(fib());
+```
