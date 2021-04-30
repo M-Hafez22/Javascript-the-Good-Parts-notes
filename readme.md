@@ -7,7 +7,7 @@
 - [x]  [Chapter 3 - Objects](./chapters/3_Objects.md)
 - [x]  [Chapter 4 - Functions](./chapters/4_Functions.md)
 - [ ]  [Chapter 5 - Inheritance](./chapters/5_Inheritance.md)
-- [ ]  Chapter 6 - Arrays
+- [ ]  [Chapter 6 - Arrays](./chapters/6_Arrays.md)
 - [ ]  Chapter 7 - Regular Expressions
 - [ ]  Chapter 8 - Methods
 - [ ]  Chapter 9 - Style
