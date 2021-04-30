@@ -11,6 +11,7 @@
 - [Array Literals](#Array-Literals)
 - [Length](#Length)
 - [Delete](#delete)
+- [Enumeration](#enumeration)
 
 ---
 
@@ -111,3 +112,16 @@ var numbers_object = {
 - Because every property after the deleted property must be removed and reinserted with a new key, this might be slow for large arrays.
 
 ---
+
+## Enumeration
+
+- the `for in` statement can be used to iterate over all of the properties of an array - Like Objects -.
+- But Unfortunately, `for in` does not iterate through the properties in order and sometimes pulls in from further up the prototype chain
+- To avoid these problems use `for statement`
+  
+  ```js
+  var i;
+  for (i = 0; i < myArray.length; i += 1) {
+    console.log(myArray[i]);
+  }
+  ```
