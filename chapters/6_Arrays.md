@@ -12,6 +12,7 @@
 - [Length](#Length)
 - [Delete](#delete)
 - [Enumeration](#enumeration)
+- [Confusion](#confusion)
 
 ---
 
@@ -125,3 +126,12 @@ var numbers_object = {
     console.log(myArray[i]);
   }
   ```
+
+---
+
+## Confusion
+
+- **When to use Array**
+To choose from Array or Object There is a simple rule: **when the property names are small sequential integers**, you should use an array. Otherwise, use an object.
+
+---
