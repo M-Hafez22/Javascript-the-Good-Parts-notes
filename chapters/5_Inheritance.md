@@ -7,8 +7,8 @@
 - [Prototypal](#prototypal)
 - [Functional](#functional)
 - [Parts](#parts)
-
---- 
+- [ES6 classes](#es6-classes)
+---
 
 - The benefits of classical inheritance (or extends).
   - it is a form of code reuse.
@@ -185,3 +185,7 @@ console.log(myCat.says())
 ## Parts
 
 - An object can be composed out of a set of parts For example, you can create a function that provides the object it is passed with a number of methods (which are defined in this function), where each method is a part that is added to the object.
+
+## ES6 classes
+
+- [ Inheritance in JavaScript - Topics of JavaScript/ES6](https://www.youtube.com/watch?v=MfxBfRD0FVU&t)
