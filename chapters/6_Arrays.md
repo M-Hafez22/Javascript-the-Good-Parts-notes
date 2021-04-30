@@ -7,6 +7,9 @@
 - Arrays have their own literal format and their own set of methods (Chapter 8 - Methods).
 
 - [Array Literals](#Array-Literals)
+- [Length](#Length)
+
+---
 
 ## Array Literals
 
@@ -37,3 +40,44 @@ var numbers_object = {
 - numbers inherits from Array.prototype, whereas numbers_object inherits from Object.prototype, **so numbers inherits a larger set of useful methods**.
 - numbers gets the mysterious length property, while numbers_object does not.
 - JavaScript allows an array to **contain any mixture of values**.
+
+## Length
+
+- **There is no array bounds error.**
+  - JavaScript’s array length is not an upper bound. If you store an element with a subscript that is greater than or equal to the current length, the length will increase to contain the new element.
+- The length property is the largest integer property name in the array plus one
+
+  ```js
+  var myArray = [];
+  console.log(myArray.length) // 0
+  myArray[1000000] = true;
+  console.log(myArray.length) // 1000001
+  // myArray contains one property.
+  console.log(myArray[1000000]) // true
+  // Other elements is undefined
+  console.log(myArray[10]) // undefined
+  ```
+
+- **The length can be set explicitly**
+  - Making the length larger **does not allocate more space** for the array.
+  - Making the length smaller **will cause all properties with a subscript that is greater than or equal to the new length to be deleted**
+
+  ```js
+  var numbers = [ 'zero', 'one', 'two', 'three', 'four'];
+  numbers.length = 3; // Making the length smaller
+  console.log(numbers) // numbers is ['zero', 'one', 'two']
+  ```
+- A new element can be appended to the end of an array by:
+  - **assigning to the array’s current length**
+
+  ```js
+  numbers[numbers.length] = 'shi';
+  console.log(numbers) // numbers is ['zero', 'one', 'two', 'shi']
+  ```
+
+  - **using the push method**
+  
+  ```js
+  numbers.push('go');
+  console.log(numbers) // numbers is ['zero', 'one', 'two', 'shi', 'go']
+  ```
