@@ -6,6 +6,8 @@
 
 - Arrays have their own literal format and their own set of methods (Chapter 8 - Methods).
 
+---
+
 - [Array Literals](#Array-Literals)
 - [Length](#Length)
 - [Delete](#delete)
@@ -41,6 +43,8 @@ var numbers_object = {
 - numbers inherits from Array.prototype, whereas numbers_object inherits from Object.prototype, **so numbers inherits a larger set of useful methods**.
 - numbers gets the mysterious length property, while numbers_object does not.
 - JavaScript allows an array to **contain any mixture of values**.
+
+---
 
 ## Length
 
@@ -84,6 +88,8 @@ var numbers_object = {
   console.log(numbers) // numbers is ['zero', 'one', 'two', 'shi', 'go']
   ```
 
+---
+
 ## Delete
 
 - Elements can be deleted from the array object using delete but **this leaves a hole in the array. (assign the deleted element to undefined)** This is because the elements to the right of the deleted element retain their original names.
@@ -103,3 +109,5 @@ var numbers_object = {
   ```
 
 - Because every property after the deleted property must be removed and reinserted with a new key, this might be slow for large arrays.
+
+---
