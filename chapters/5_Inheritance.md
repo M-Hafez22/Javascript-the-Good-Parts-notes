@@ -6,6 +6,7 @@
 - [Object Specifiers](#object-specifiers)
 - [Prototypal](#prototypal)
 - [Functional](#functional)
+- [Parts](#parts)
 
 --- 
 
@@ -181,3 +182,6 @@ console.log(myCat.says())
 - If we create an object in the functional style, and if all of the methods of the object make no use of this or that, then the object is durable.
 - **A durable object** is simply a collection of functions that act as capabilities. that cannot be compromised by attackers.
 
+## Parts
+
+- An object can be composed out of a set of parts For example, you can create a function that provides the object it is passed with a number of methods (which are defined in this function), where each method is a part that is added to the object.
