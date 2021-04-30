@@ -8,6 +8,7 @@
 
 - [Array Literals](#Array-Literals)
 - [Length](#Length)
+- [Delete](#delete)
 
 ---
 
@@ -67,6 +68,7 @@ var numbers_object = {
   numbers.length = 3; // Making the length smaller
   console.log(numbers) // numbers is ['zero', 'one', 'two']
   ```
+
 - A new element can be appended to the end of an array by:
   - **assigning to the array’s current length**
 
@@ -81,3 +83,23 @@ var numbers_object = {
   numbers.push('go');
   console.log(numbers) // numbers is ['zero', 'one', 'two', 'shi', 'go']
   ```
+
+## Delete
+
+- Elements can be deleted from the array object using delete but **this leaves a hole in the array. (assign the deleted element to undefined)** This is because the elements to the right of the deleted element retain their original names.
+
+  ```js
+  var numbers = [ 'zero', 'one', 'two', 'three', 'four'];
+  delete numbers[2]
+  console.log(numbers); // ["zero", "one", undefined, "three", "four"]
+  ```
+
+- Use array.splice(keyInArray, howManyElementsToDelete) which changes the keys for the remaining values in the array so there is no hole left.
+
+  ```js
+  var numbers = [ 'zero', 'one', 'two', 'three', 'four'];
+  numbers.splice(2, 1);
+  console.log(numbers); // [ "zero", "one", "three", "four" ]
+  ```
+
+- Because every property after the deleted property must be removed and reinserted with a new key, this might be slow for large arrays.
