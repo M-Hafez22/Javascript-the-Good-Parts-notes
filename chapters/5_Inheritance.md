@@ -5,8 +5,9 @@
 - [Pseudoclassical](#pseudoclassical)
 - [Object Specifiers](#object-specifiers)
 - [Prototypal](#prototypal)
+- [Functional](#functional)
 
----
+--- 
 
 - The benefits of classical inheritance (or extends).
   - it is a form of code reuse.
@@ -86,3 +87,97 @@
     return this.says() + ' ' + this.name + ' ' + this.says();
   };
   ```
+
+## Functional
+
+- All properties of an object are visible. there is no such thing as a 'private variable'. this pattern manage us to make private variables.
+
+- The function contains four steps:
+  1. It creates a new object.
+  2. It optionally defines private instance variables and methods.
+  3. It augments that new object with methods.
+  4. It returns that new object.
+
+  ```js
+  var constructor = function (spec, my) {
+    var that, other // private instance variables;
+    my = my || {};
+    // Add shared variables and functions to my
+    that = a new object;
+    // Add privileged methods to that
+    return that;
+  };
+
+  ```
+
+- example
+
+```js
+var mammal = function (spec) {
+  var that = {};
+  that.get_name = function () {
+    return spec.name;
+  };
+  that.says = function () {
+    return spec.saying || '';
+  };
+  return that;
+};
+var myMammal = mammal({ name: 'Herb' });
+
+console.log(myMammal.get_name()); // Herb
+```
+
+- The name and saying properties are now completely private. They are accessible only via the privileged get_name and says methods
+
+- Create the Cat constructor
+
+```js
+
+var mammal = function (spec) {
+  var that = {};
+  that.get_name = function () {
+    return spec.name;
+  };
+  that.says = function () {
+    return spec.saying || '';
+  };
+  return that;
+};
+var myMammal = mammal({ name: 'Herb' });
+
+
+var cat = function (spec) {
+
+  spec.saying = spec.saying || 'meow'; //if spec.saying doesn't already exists, make it 'meow'
+
+
+  var that = mammal(spec);  //here the object 'container of secrets' is set up inheriting from mammal already
+
+  that.purr = function (n) {
+    var i, s = '';
+    for (i = 0; i < n; i += 1) {
+      if (s) {
+        s += '-';
+      }
+      s += 'r';
+    }
+    return s;
+  };
+
+  that.get_name = function () {
+    return `${that.says()} ${spec.name} ${that.says()}`;
+  };
+
+  return that;
+};
+
+var myCat = cat({ name: 'Henrietta' });
+
+console.log(myCat.get_name())
+console.log(myCat.says())
+```
+
+- If we create an object in the functional style, and if all of the methods of the object make no use of this or that, then the object is durable.
+- **A durable object** is simply a collection of functions that act as capabilities. that cannot be compromised by attackers.
+
