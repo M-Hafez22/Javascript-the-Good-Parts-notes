@@ -134,4 +134,21 @@ var numbers_object = {
 - **When to use Array**
 To choose from Array or Object There is a simple rule: **when the property names are small sequential integers**, you should use an array. Otherwise, use an object.
 
+- Javascript doesn't have a good way of telling an object from an array. `console.log(typeof([1, 2])) // object`.
+- fortunately, we can make a function that detects arrays
+  
+  ```js
+  var is_array = function (value) {
+    // apply(value) binds `value` to `this` 
+    // returns Array if `this` is an array
+    // otherwise returns the type of the value
+    return Object.prototype.toString.apply(value) === '[object Array]' ? "Array" : typeof(value) ;
+  }
+  console.log(is_array([1, 2])) // Array
+  console.log(is_array("just a string")) // string
+  ```
+
+- The `Array.isArray()` method determines whether the passed value is an Array. `console.log(Array.isArray([1, 2, 3])) // true`
+  [mozilla.org - Array.isArray()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+
 ---
