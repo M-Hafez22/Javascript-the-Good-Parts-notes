@@ -13,6 +13,7 @@
 - [Delete](#delete)
 - [Enumeration](#enumeration)
 - [Confusion](#confusion)
+- [Methods](#methods)
 
 ---
 
@@ -152,3 +153,15 @@ To choose from Array or Object There is a simple rule: **when the property names
   [mozilla.org - Array.isArray()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 
 ---
+
+## Methods
+
+- The methods are functions stored in `Array.prototype`.
+- Because an array is really an object, we can add methods directly to an individual array:
+
+  ```js
+  myArray.myMethod = function ( ) {
+    //statements to execute; 
+  };
+  ```
+- DO NOT USE: `Object.create()` because it will create *an object, not an array*. it will inherit the array’s values and methods, But lacking the `length` property.
