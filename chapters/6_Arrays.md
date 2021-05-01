@@ -14,7 +14,7 @@
 - [Enumeration](#enumeration)
 - [Confusion](#confusion)
 - [Methods](#methods)
-
+- [Dimensions](#dimensions)
 ---
 
 ## Array Literals
@@ -164,4 +164,23 @@ To choose from Array or Object There is a simple rule: **when the property names
     //statements to execute; 
   };
   ```
+
 - DO NOT USE: `Object.create()` because it will create *an object, not an array*. it will inherit the array’s values and methods, But lacking the `length` property.
+
+---
+
+## Dimensions
+
+- The cells initial value is `undefined`.
+- JavaScript does not have arrays of more than one dimension, but like most C languages, **it can have arrays of arrays**:
+
+```js
+var matrix = [
+ [0, 1, 2],
+ [3, 4, 5],
+ [6, 7, 8]
+];
+matrix[2][1] // 7
+```
+
+---
