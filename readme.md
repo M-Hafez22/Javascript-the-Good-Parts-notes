@@ -7,8 +7,8 @@
 - [x]  [Chapter 3 - Objects](./chapters/3_Objects.md)
 - [x]  [Chapter 4 - Functions](./chapters/4_Functions.md)
 - [ ]  [Chapter 5 - Inheritance](./chapters/5_Inheritance.md)
-- [ ]  [Chapter 6 - Arrays](./chapters/6_Arrays.md)
-- [ ]  Chapter 7 - Regular Expressions
+- [x]  [Chapter 6 - Arrays](./chapters/6_Arrays.md)
+- [ ]  [Chapter 7 - Regular Expressions](./chapters/7_Regular_Expressions.md)
 - [ ]  Chapter 8 - Methods
 - [ ]  Chapter 9 - Style
 - [ ]  Chapter 10 - Beautiful Features
