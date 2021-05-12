@@ -41,3 +41,20 @@
 - `:` matched literally
 - `?` indicates that the group is optional - *repeat zero or one time*.
 - `\/` The backslash `\` escapes the forward slash `/` (which traditionally symbolises the end of the regular expression literal) and together they indicate that the forward slash `/` should be matched.
+
+## Construction
+
+- Two ways to build a regular expression:
+
+- **Regular Expression literals** as per the examples above start and end with a slash `/`
+  - Here the flags are appended after the final slash, for example `/i`
+  - Be careful: RegExp objects made by regular expression literals share a single instance
+
+- **Use RegExp constructor**
+  - The first parameter is the string to be made into a RegExp object, the second is the flag
+  - Useful when all information for creating the regular expression is not available at time of programming
+  - Backslashes mean something in the constructor, so these must be doubled and quotes must be escaped
+
+  ```js
+  var my_regexp = new RegExp("'(?:\\\\.|[ˆ\\\\\\'])*'", 'g');
+  ```
