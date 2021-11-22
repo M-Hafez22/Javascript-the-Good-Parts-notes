@@ -24,7 +24,7 @@
 - Construction a regular expression literal
   - it must be enclosed in slashes `/ /`
   - There are three **flags**:
-    - `//g` Global (match multiple times; the precise meaning of this varies with the method)
+    - `//g` Global (match multiple times - Match All -)
     - `//i` Insensitive (ignore character case)
     - `//m` Multiline (^ and $ can match line-ending characters)
 
