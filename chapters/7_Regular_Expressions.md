@@ -12,6 +12,7 @@
   - `string.search`
   - `string.split`
 
+> Regular expressions usually have a significant performance advantage over equivalent string operations in JavaScript.
 > These will all be described in **Chapter 8**
 
 - regular expression rols
