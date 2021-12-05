@@ -39,7 +39,7 @@
 - `-` The hyphens indicate ranges. (A-Za-z)
 - `+` indicates that the character class will be matched one or more times.
 - `:` matched literally
-- `?` indicates that the group is optional - _repeat zero or one time_.
+- `?` indicates that the group is optional - *repeat zero or one time*.
 - `\/` The backslash `\` escapes the forward slash `/` (which traditionally symbolises the end of the regular expression literal) and together they indicate that the forward slash `/` should be matched.
 
 ## Construction
