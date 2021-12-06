@@ -60,3 +60,102 @@
   ```js
   var my_regexp = new RegExp("'(?:\\\\.|[ˆ\\\\\\'])*'", "g");
   ```
+
+## Elements
+
+### Regexp Choice `|`
+
+- A regexp choice contains one or more regexp sequences.
+- The sequences are separated by the `|` (vertical bar) character.
+- The choice matches if any of the sequences match. It attempts to _match each of the sequences in order_. So:
+  `"into".match(/in|int/)`
+  matches the `in` in `into`. It wouldn’t match `int` because the match of `in` was successful.
+
+### Regexp Sequence
+
+- A regexp sequence contains one or more regexp [factors](#regexp-factor). Each factor can optionally be followed by a quantifier that determines how many times the factor is allowed to appear. If there is no quantifier, then the factor will be matched one time.
+
+### Regexp Factor
+
+- A regexp factor can be a character, a parenthesized group, a character class, or an escape sequence.
+- The following special characters must all be escaped with a backslash `\` to be taken literally, or they will take on an alternative meaning:
+
+  ```js
+  \ / [ ] ( ) { } ? + * | . ˆ$
+  ```
+
+- An unescaped
+  - `.` matches any character except a line-ending character.
+  - `^` matches the beginning of the text when the `lastIndex` property is zero. It can also match line-ending characters when the `m` flag is specified.
+  - `$` matches the end of the text. It can also match line-ending characters when the `m` flag is specified.
+
+### Regexp Escape
+
+- The backslash character indicates escapement in regexp factors as well as in strings, but in regexp factors, it works a little differently.
+
+- `\f` is the formfeed character
+- `\n` is new line
+- `\r` is carriage return
+- `\t` is tab
+- `\u` specifies Unicode as a 16-bit hex. But `\b` is not a backspace character
+- `\d` is the same as [0-9]. It matches a digit. `\D` is the opposite: [^0-9].
+- `\s` is the same as [\f\n\r\t\u000B\u0020\u00A0\u2028\u2029]. This is a partial set of *Unicode whitespace characters*. `\S` is the opposite: [^\f\n\r\t\u000b\u0020\u00a0\u2028\u2029].
+- `\w` is the same as [0-9A-Z_a-z]. `\W` is the opposite: [^0-9a-z_a-z].This is supposed to represent the characters that appear in words. Unfortunately, it's useless for working with virtually any real language.
+- `\b` was supposed to be a word-boundary anchor. Unfortunately, it uses \w to find word boundaries, so it is completely *useless for multilingual applications*.
+- `\1` is a reference to the text that was captured by group 1. also `\2` is a reference to group 2, `\3` is a reference to group 3.
+
+### Regexp Group
+
+- There are four kinds of groups
+  - **Capturing** (?:...)
+    - A capturing group is a regexp choice wrapped in parentheses.
+    - Every capture group is given a number (The first capturing is group 1. The second capturing is group 2.).
+  - **Noncapturing** (?:...)
+    - The text is matched, but not captured.
+    - slight faster
+    - has no bearing on numbering of capturing groups
+  - **Positive lookahead**: (?=...)
+    - It is like a noncapturing group except that after the group matches, the text is rewound to where the group started, effectively matching nothing.
+  - **Negative lookahead** (?!...)
+    - It is like a positive lookahead group, except that it matches only if it fails to match.
+
+### Regexp Class
+
+- is a convenient way of specifying one of a set of characters by square brackets `[]`.
+- example
+  - vowel characters
+
+    ```js
+    (?:a|e|i|o|u)
+    ```
+
+    Can be
+
+    ```js
+    [aeiou]
+    ```
+
+  - the set of 32 ASCII special characters
+
+    ```js
+    (?:!|"|#|\$|%|&|'|\(|\)|\*|\+|,|-|\.|\/|:|;|<|=|>|@|\[|\\|]|\^|_|` |\{|\||\}|~)
+    ```
+
+    will be
+
+    ```js
+    [!-\/:-@\[-`{-~]
+    ```
+
+### Regexp Class Escape
+
+There are specific characters that must be escaped in a character class: `- / [ \ ] ˆ`
+
+### Regexp Quantifier
+
+- A number wrapped in curly braces `{}` after the factor means that the factor should match that many times.
+- So, `/www/` matches the same as `/w{3}/`.
+- `/w{3,6}/` will match 3, 4, 5, or 6 times. `/w{3,}/` will match 3 or more times.
+- `?` is the same as `{0,1}` zero or one (optional).
+- `*` is the same as `{0,}` zero or more.
+- `+` is the same as `{1,}` at least one.
