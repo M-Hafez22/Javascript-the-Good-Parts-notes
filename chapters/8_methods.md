@@ -3,7 +3,8 @@
 ## Table of Content
 
 - [Arrays](#arrays)
-- [Function](#Function)
+- [Function](#function)
+- [Number](#number)
 
 ## Arrays
 
@@ -213,5 +214,63 @@ var r = a.splice(1, 1, 'ache', 'bug');
 
 - The apply method invokes a function, passing in *the object that will be bound to **this*** and an optional *array of arguments*.
 - The apply method is used in the apply invocation pattern
+
+---
+
+## Number
+
+- [toExponential](#toexponential)
+- [toFixed](#tofixed)
+- [toPrecision](#toprecision)
+- [toString](#tostring)
+
+### toExponential
+
+> number.toExponential(fractionDigits)
+
+- Converts number to a string in the exponential form.
+- The optional **fractionDigits** parameter controls the number of *decimal* places. It should be between 0 and 20.
+
+```js
+console.log(Math.PI.toExponential(20))
+// 3.14159265358979311600e+0
+```
+
+### toFixed
+
+> number.toFixed(fractionDigits)
+
+- Converts number to a string in the decimal form.
+- The optional **fractionDigits** parameter controls the number of *decimal* places. It should be between 0 and 20.
+
+```js
+console.log(Math.PI.toFixed(0))
+// 3
+```
+
+### toPrecision
+
+> number.toPrecision(precision)
+
+- Converts number to a string in the decimal form.
+- The optional **precision** parameter controls the number of *decimal* places. It should be between 1 and 21.
+
+```js
+console.log(Math.PI.toPrecision(2))
+// 3.1
+```
+
+### toString
+
+> number.toString(radix)
+
+- Converts number to a string.
+- The optional **radix** parameter controls radix, or base. It should be between 2 and 36. The default radix is base 10.
+
+```js
+var num = 55.55
+num.toString(2)
+// "110111.1000110011001100110011001100110011001100110011"
+```
 
 ---
