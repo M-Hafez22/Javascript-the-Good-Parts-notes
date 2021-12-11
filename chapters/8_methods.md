@@ -3,6 +3,7 @@
 ## Table of Content
 
 - [Arrays](#arrays)
+- [Function](#Function)
 
 ## Arrays
 
@@ -201,5 +202,16 @@ var r = a.splice(1, 1, 'ache', 'bug');
 // a is ['a', 'ache', 'bug', 'c']
 // r is ['b']
 ```
+
+---
+
+## Function
+
+### apply
+
+> function.apply(thisArg, argArray)
+
+- The apply method invokes a function, passing in *the object that will be bound to **this*** and an optional *array of arguments*.
+- The apply method is used in the apply invocation pattern
 
 ---
