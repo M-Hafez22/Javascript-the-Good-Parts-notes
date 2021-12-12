@@ -10,7 +10,7 @@
 
 ## Arrays
 
-- [concat](#concat)
+- [Array-concat](#array-concat)
 - [join](#join)
 - [pop](#pop)
 - [push](#push)
