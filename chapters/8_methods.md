@@ -6,6 +6,7 @@
 - [Function](#function)
 - [Number](#number)
 - [Object](#object)
+- [RegExp](#regexp)
 
 ## Arrays
 
@@ -291,3 +292,37 @@ var u = b.hasOwnProperty('member'); // u is false
 var v = b.member; // v is true
 ```
 
+---
+
+## RegExp
+
+- [exec](#exec)
+- [test](#test)
+
+### exec
+
+> regexp.exec(string)
+
+- If it successfully matches the regexp and the string, it returns an array.
+  - The 0 element of the array will contain the substring that matched the regexp.
+  - The 1 element is the *text captured by group* 1, the 2 element is the text captured by group 2, and so on.
+  - *If the match fails, it returns null*.
+- If the regexp has a `g` flag, things are a little more complicated. The searching begins not at position 0 of the string, but at position **regexp.lastIndex** (which is initially zero).
+  - If the match is successful, then ***regexp.lastIndex** will be set to the position of the first character after the match*.
+  - An unsuccessful match resets **regexp.lastIndex** to 0.
+- There are a couple things to watch out for:
+  1. If you exit the loop early, you must reset regexp.lastIndex to 0 yourself before entering the loop again.
+  2. the `^` factor matches only when regexp.lastIndex is 0.
+
+> The exec method is the most powerful and slowest of the methods that use regular expressions.
+
+### test
+
+> regexp.test(string)
+
+- If the regexp matches the string, it returns true; otherwise, it returns false.
+- Do not use the g flag with this method
+
+> The test method is the simplest and fastest of the methods that use regular expressions.
+
+---
