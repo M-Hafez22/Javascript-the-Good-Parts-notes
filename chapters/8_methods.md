@@ -7,6 +7,7 @@
 - [Number](#number)
 - [Object](#object)
 - [RegExp](#regexp)
+- [String](#string)
 
 ## Arrays
 
@@ -21,7 +22,7 @@
 - [sort](#sort)
 - [splice](#splice)
 
-### concat
+### Array-concat
 
 - The concat method produces a *new array* containing a shallow copy of this array with the items appended to it (does not modify the original array ).
 
@@ -326,3 +327,226 @@ var v = b.member; // v is true
 > The test method is the simplest and fastest of the methods that use regular expressions.
 
 ---
+
+## String
+
+- [charAt](#charat)
+- [charCodeAt](#charcodeAt)
+- [String-concat](#string-concat)
+- [indexOf](#indexof)
+- [lastIndexOf](#lastIndexof)
+- [Search](#search)
+- [localeCompare](#localecompare)
+- [String-slice](#string-slice)
+- [Split](#split)
+- [Substring](#substring)
+- [toLocaleLowerCase](#tolocalelowercase)
+- [toLocaleUpperCase](#tolocaleuppercase)
+- [toLowerCase](#tolowercase)
+- [toUpperCase](#touppercase)
+- [fromCharCode](#fromcharcode)
+
+### charAt
+
+> string.charAt(pos)
+
+- The charAt method returns the character at position *pos* in this string.
+- If *pos* is less than zero or greater than or equal to string.length, it returns the empty string.
+- The result of this method is a string.
+
+```js
+var name = 'Curly';
+var initial = name.charAt(0);
+// initial is 'C'
+```
+
+- charAt could be implemented as:
+
+```js
+String.method('charAt', function (pos) {
+return this.slice(pos, pos + 1);
+});
+```
+
+### charCodeAt
+
+> string.charCodeAt(pos)
+
+- just like it `charAt` except it returns an integer representation of the code point value of the character at position pos in that string.
+
+```js
+var name = 'Curly';
+var initial = name.charCodeAt(0);
+// initial is 67
+```
+
+### String-concat
+
+> string.concat(string...)
+
+- It makes a new string by concatenating other strings together.
+
+```js
+var a = 'C'.concat('a', 't');   // a is 'Cat'
+// You can also use + operator
+var b = 'D' + 'o' + 'g'  // b is 'Dog' 
+```
+
+### indexOf
+
+> string.indexOf(searchString, position)
+
+- It searches for a *string* within a *string*.
+- If it is found, it returns the **position of the first matched character**; otherwise, it returns **–1**.
+- The optional position parameter causes the search to begin at some specified position in the string.
+
+```js
+var text = 'Mississippi';
+var p = text.indexOf('ss'); // p is 2
+p = text.indexOf('ss', 3); // p is 5
+p = text.indexOf('ss', 6); // p is -1
+```
+
+### lastIndexOf
+
+> string.lastIndexOf(searchString, position)
+
+- Just like the `indexOf` method, except that it searches from the **end of the string** instead of the front.
+
+```js
+var text = 'Mississippi';
+var p = text.lastIndexOf('ss'); // p is 2
+p = text.lastIndexOf('ss', 3); // p is 2
+p = text.lastIndexOf('ss', 6); // p is 5
+```
+
+### Search
+
+> string.search(regexp)
+
+- Like the `indexOf` method, except that it takes a **regular expression**
+object instead of a string.
+- It returns the position of the *first character* of the first match
+- if the search fails it returns *–1*
+- The `g` flag is ignored. There is no position parameter:
+
+```js
+var text = 'and in it he says "Any damn fool could';
+var pos = text.search(/["']/);
+ // pos is 18
+```
+
+### localeCompare
+
+> string.localeCompare(that)
+
+- The rules for how the strings are compared are not specified.
+- If this string is *less than* that string, the result is *negative*. If
+they are *equal*, the result is *zero*.
+
+```js
+var m = ['AAA', 'A', 'aa', 'a', 'Aa', 'aaa'];
+m.sort(function (a, b) {
+    return a.localeCompare(b);
+});
+// m (in some locale) is
+// ['a', 'A', 'aa', 'Aa', 'aaa', 'AAA']
+```
+
+### match
+
+> string.match(regexp)
+
+- matches a string and a regular expression.
+- If there is no `g` flag, then the result of calling `string.match(regexp)` is the same as calling `regexp.exec(string)`.
+- if the regexp has the `g` flag, then it produces an *array of all the matches* but excludes the capturing groups.
+
+### replace
+
+> string.replace(searchValue, replaceValue)
+
+- The search method is like the indexOf method, except that it takes a regular expression object instead of a string.
+- It returns the *position of the first character* of the first match, or *–1* if the search fails.
+- The g flag is ignored. There is no position parameter:
+
+```js
+var text = 'and in it he says "Any damn fool could';
+var pos = text.search(/["']/);
+// pos is 18
+```
+
+### String-slice
+
+> string.slice(start, end)
+
+- Creates a *new string* by copying the characters *from the start position to the character before the end position* in string.
+- If the *start* parameter is negative, it adds *string.length* to it.
+- The end *parameter* is optional and the default is *string.length*. If either parameter is negative, string.length is added to it.
+
+```js
+var text = 'and in it he says "Any damn fool could';
+var a = text.slice(18);
+// a is '"Any damn fool could'
+var b = text.slice(0, 3);
+// b is 'and'
+var c = text.slice(-5);
+// c is 'could'
+var d = text.slice(19, 32);
+// d is 'Any damn fool'
+```
+
+### Split
+
+> string.split(separator, limit)
+
+- Creates an array of strings by splitting this string into pieces.
+- The optional limit parameter can limit the number of pieces that will be split.
+- The separator parameter can be a string or a regular expression.
+
+```js
+var digits = '0123456789';
+var a = digits.split('', 5);
+// a is ['0', '1', '2', '3', '4']
+```
+
+### Substring
+
+> string.substring(start, end)
+
+- like the slice method except that it **doesn’t handle the
+adjustment for negative parameters**.
+
+### toLocaleLowerCase
+
+> string.toLocaleLowerCase()
+
+- Produces a new string by converting this string to lowercase , using the rules for the locale.
+
+### toLocaleUpperCase
+
+> string.toLocaleUpperCase( )
+
+- Produces a new string by converting this string to uppercase , using the rules for the locale.
+
+### toLowerCase
+
+> string.toLowerCase( )
+
+- Produces a new string by converting this string to lowercase.
+
+### toUpperCase
+
+> string.toUpperCase( )
+
+- Produces a new string by converting this string to uppercase.
+
+### fromCharCode
+
+> String.fromCharCode(char...)
+
+- Produces a string from a series of numbers.
+
+```js
+var a = String.fromCharCode(67, 97, 116);
+// a is 'Cat'
+```
