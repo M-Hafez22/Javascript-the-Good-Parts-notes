@@ -9,8 +9,8 @@
 - [ ]  [Chapter 5 - Inheritance](./chapters/5_Inheritance.md)
 - [x]  [Chapter 6 - Arrays](./chapters/6_Arrays.md)
 - [x]  [Chapter 7 - Regular Expressions](./chapters/7_Regular_Expressions.md)
-- [ ]  [Chapter 8 - Methods](./chapters/8_methods.md)
-- [ ]  Chapter 9 - Style
+- [x]  [Chapter 8 - Methods](./chapters/8_methods.md)
+- [ ]  [Chapter 9 - Style](./chapters/9_style.md)
 - [ ]  Chapter 10 - Beautiful Features
 - [ ]  Appendix A - the Awful Parts
 - [ ]  Appendix B - the Bad Parts
